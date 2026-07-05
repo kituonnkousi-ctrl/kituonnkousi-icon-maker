@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>志アイコンメーカー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <h1 class="page-title">幸志アイコンメーカー</h1>
+
+    <main class="layout">
+      <section class="panel controls-panel" aria-label="設定">
+        <form id="controls" class="controls" autocomplete="off">
+          <label class="field">
+            <textarea id="textInput" name="text" rows="4" maxlength="40" aria-label="文字">志</textarea>
+          </label>
+
+          <label class="field checkbox-field">
+            <input id="gradientModeInput" name="perCharacterGradient" type="checkbox" checked>
+            <span>1文字ずつグラデーション</span>
+          </label>
+        </form>
+      </section>
+
+      <section class="panel preview-panel" aria-label="プレビュー">
+        <div class="canvas-wrap">
+          <canvas id="iconCanvas" width="1920" height="1080" aria-label="アイコンプレビュー"></canvas>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

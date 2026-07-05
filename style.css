@@ -1,0 +1,164 @@
+:root {
+  --body-top: #071225;
+  --body-bottom: #020712;
+  --panel-bg: rgba(5, 14, 30, 0.86);
+  --panel-border: rgba(108, 160, 255, 0.18);
+  --text-main: #f4f8ff;
+  --text-soft: #d8e5ff;
+  --accent-a: #32eeff;
+  --accent-b: #139dff;
+  --shadow: 0 28px 72px rgba(0, 0, 0, 0.32);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  font-family: "Noto Sans JP", "Yu Gothic UI", "Hiragino Sans", sans-serif;
+  color: var(--text-main);
+  background: #071426;
+}
+
+.app-shell {
+  width: min(1100px, calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  transform: translateY(clamp(-40px, -5vh, -16px));
+}
+
+.page-title {
+  margin: 0;
+  font-family: "HG正楷書体-PRO", "HG正楷書体-PRO M", serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  line-height: 1;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.panel {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  backdrop-filter: none;
+}
+
+.controls-panel,
+.preview-panel {
+  padding: 20px;
+}
+
+.controls {
+  display: grid;
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field span {
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(153, 188, 255, 0.16);
+  border-radius: 16px;
+  background: rgba(2, 8, 20, 0.92);
+  color: var(--text-main);
+  padding: 12px 14px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.field textarea {
+  min-height: 132px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: rgba(50, 238, 255, 0.62);
+  box-shadow: 0 0 0 4px rgba(50, 238, 255, 0.14);
+}
+
+.field input:disabled,
+.field textarea:disabled {
+  opacity: 0.52;
+}
+
+.checkbox-field {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.checkbox-field-inline {
+  align-self: end;
+  min-height: 50px;
+}
+
+.checkbox-field input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--accent-a);
+}
+
+.canvas-wrap {
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(1, 4, 12, 0.9);
+}
+
+.canvas-wrap canvas {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 18px;
+  background: #0b35b5;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell {
+    transform: translateY(-16px);
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: min(100vw - 20px, 100%);
+    gap: 14px;
+    transform: none;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}
